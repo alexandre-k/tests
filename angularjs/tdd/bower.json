@@ -1,0 +1,24 @@
+{
+  "name": "tdd",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Alexandre Krispin <k.m.alexandre@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.0",
+    "mocha": "^3.2.0",
+    "chai": "^3.5.0",
+    "angular-mocks": "^1.6.0"
+  }
+}

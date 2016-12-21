@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app=AddressBook>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Contact Book</title>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <h1>Contacts</h1>
+        <div ng-controller=ContactController>
+            <div ng-repeat='contact in contacts'>
+            {{contact.name}}
+            <avatar name=contact.name></avatar>
+            </div>
+        </div>
+    </body>
+</html>

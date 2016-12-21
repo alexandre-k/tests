@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html ng-app='restfulApp'>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script>
+            var restfulApp = angular.module('restfulApp', []);
+
+            restfulApp.controller(numberCtrl, [$scope, myfunc,
+            $scope.checkOddNumber = checkOddNumber;
+            ]);
+
+            function myfunc($scope) {
+                $scope.model = {
+                    number: 0,
+                    result: 'Ready',
+                };
+
+            }
+        </script>
+        <title>Lab 3</title>
+    </head>
+    <body>
+        <div class="container">
+            <input type='number' ng-model='model.number' class='form-control' />
+            <input type='button' class='btn btn-primary' value='Check Odd Number' ng-click='checkOddNumber(model.number)' />
+            <pre>{{model.result}}</pre>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app='pizzaMenuApp'>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script>
+        var pizzaMenuApp = angular.module('pizzaMenuApp', []);
+
+        pizzaMenuApp.controller('menuCtrl', ['$scope', $timeout, $q, function($scope, selectedPizza){
+            $scope.headers = {'menu': "Our menu", 'title': "Tony\'s Pizza"};
+            $scope.pizzas = [{'name': 'Cheese', 'price': 5},
+                            {'name': 'Pepperoni', 'price': 10},
+                            {'name': 'Margherita', 'price': 7},
+                            {'name': 'BBQ Chicken', 'price': 9},
+                            {'name': 'Combo', 'price': 12}
+            ];
+            $scope.availableToppings = ['Cheese', 'Pepperoni', 'Bacon', 'Pineapple', 'Sausage', 'Ham', 'Chicken', 'Mushrooms', 'Onion', 'Olives', 'Green Peppers']
+            $scope.changeMainDish = function(item) {
+                $scope.selectedPizza = item
+            }
+
+            $scope.searchTopping = function(availableToppings, keyword){
+                if (availableToppings.indexOf(keyword)) {
+                    console.log('topping available at ' + availableToppings.indexOf(keyword))
+                    $scope.selectedTopping = keyword
+                } else {
+                    console.log('No such topping')
+                }
+            }
+
+            $scope.$watch('selectedPizza', function(newValue, oldValue){
+                if (newValue == 'BBQ Chicken') {
+                    alert('You selected a pizza with chicken')
+                }
+            })
+
+            function provideValue() {
+                var value = null
+                var defer = $q.defer()
+                $timeout(function () {
+                    defer.resolve(5)
+                }, 2000)
+                return defer.promise
+            }
+
+            provideValue().then(function(response) {
+                $scope.value = response
+            });
+
+            console.log(value)
+
+            var order= angular.copy(selectedPizza)
+            console.log(order)
+        }]);
+        </script>
+        <title>Lab 2</title>
+    </head>
+    <body ng-controller='menuCtrl'>
+        <div class="container">
+            <div class="page-header">
+                <h1>{{headers.title}}</h1>
+
+                <h2>{{headers.menu}}</h2>
+            </div>
+
+            <div class='form-horizontal'>
+                <div class="form-group">
+                    <label>Search for toppings</label>
+                    <input type='text' class='form-control' id='topping-search' placeholder='topping' ng-model='keyword'/>
+                    <button type='submit' class='btn btn-default' ng-click='searchTopping(keyword)'>Submit</button>
+                </div>
+            </div>
+            <div ng-show='searchTopping(keyword)' ng-repeat='topping in availableToppings | filter:keyword'>
+                <span ng-click="addTopping(topping)">{{topping}}</span>
+            </div>
+            <div class='alert alert-success' ng-hide='searchTopping(keyword)'>
+                Topping added
+            </div>
+            <div class='alert alert-warning' ng-show='searchTopping(keyword)'>
+                Topping not found
+            </div>
+            <div class="radio" ng-repeat="pizza in pizzas">
+                    <label><input type="radio" value="{{pizza}}" ng-click='changeMainDish(pizza)' ng-model='selectedPizza'/>{{pizza.name}} Pizza</label><br />
+            </div>
+            <h2>Selected Item</h2>
+            <textarea class="form-control" rows=1>{{selectedPizza.name}}</textarea>
+            <pre>{{selectedPizza.name | json}}</pre>
+            <h2>Special Instructions</h2>
+            <textarea class="form-control" rows=1 ng-model='extra'>{{ selectedToppings }}</textarea>
+            <h2>Order Summary</h2>
+            <textarea class="form-control" rows=1>{{ selectedPizza.name }} {{ selectedPizza.price | currency }} - {{ extra }}</textarea>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="module">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>My restful client</title>
+        <script src="bower_components/angular/angular.js"></script>
+    </head>
+    <script>
+var module = angular.module('module', []);
+
+module.factory('provider', function(){
+    var myobject = function getValue(){
+        console.log('provider.$get() called');
+        return 'my value';
+    return new myobject();
+    }
+});
+module.controller('controller', function(provider){
+    console.log('provider: ' + provider.getValue());
+})
+
+module.controller('controller2', function(provider){
+    console.log('provider: '+ provider.getValue());
+})
+    </script>
+    <body>
+        <div ng-controller='controller'>
+        </div>
+        <div ng-controller='controller2'>
+        </div>
+    </body>
+</html>

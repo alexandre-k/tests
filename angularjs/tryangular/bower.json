@@ -1,0 +1,22 @@
+{
+  "name": "tryangular",
+  "authors": [
+    "Alexandre Krispin <k.m.alexandre@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.9",
+    "jquery": "^3.1.1"
+  }
+}

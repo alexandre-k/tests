@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>My restful client</title>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    </head>
+    <script>
+        var app = angular.module('myApp',['ui.router']);
+
+        app.config(function($stateProvider, $urlRouterProvider){
+            
+            $urlRouterProvider.otherwise('/');
+
+            $stateProvider
+                .state('home', {
+                template: '<h1>The home template</h1>',
+                url: '/'
+
+            })
+            .state('about', {
+                template: '<h1>The about page</h1>',
+                url: '/about'
+            });
+        });
+
+        app.controller('mainCtrl', function($scope) {
+            $scope.list = [
+            {name:'Scott', age:29},
+            {name:'Ross', age:31}
+            ]
+
+            $scope.addPerson = function(name,age) {
+                if (angular.isString(name) && angular.isNumber(age)) {
+                    $scope.list.push({name: $scope.name, age: $scope.age});
+                } else {
+                    console.log(angular.isString($scope.name))
+                    console.log(angular.isNumber($scope.age))
+                }
+                $scope.name = '';
+                $scope.age = 0;
+            }
+        });
+        
+    </script>
+    <body>
+        <div ui-view></div>
+        <div ng-controller='mainCtrl'>
+            <input type='text' ng-model='search'>
+            <ul>
+            <li ng-repeat='item in list | filter:search'>
+                {{item.name}} - <em>{{item.age}}</em>
+            </li>
+            </ul>
+            <form ng-submit='addPerson(name, age)'>
+                <input type='text' placeholder='Name' ng-model='name'>
+                <input type='number' placeholder='Age' ng-model='age'>
+                <input type='submit' value='submit'>
+            </form>
+        </div>
+        <!-- <div ng-controller='testRESTfulCtrl'> -->
+        <!-- </div> -->
+    </body>
+</html>
+

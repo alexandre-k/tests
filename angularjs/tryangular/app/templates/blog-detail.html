@@ -1,0 +1,20 @@
+<h1>{{ post.title }}</h1>
+<p>{{ post.description }}</p>
+
+<h3>Comments</h3>
+<ul>
+    <li>
+        <input type='text' ng-model='query' placeholder='filter comments' />
+    </li>
+    <li ng-repeat='comment in post.comments | filter: query'>
+        {{ comment.text }}
+        <a href='#' ng-click='deleteComment(comment)'>Delete</a>
+    </li>
+</ul>
+
+<p style='color:red;' ng-if='reply.text'>Reply: {{reply.text}}</p>
+<form ng-submit='addReply()'>
+    <input type='hidden' ng-model='reply.id' value='5'>
+    <textarea ng-model='reply.text'></textarea>
+    <input type='submit'/>
+</form>

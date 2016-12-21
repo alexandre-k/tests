@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='try'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Try Angular 1.5</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js'></script>
+    
+    <script src='js/app/app.module.js'></script>
+    <script src='js/app/app.config.js'></script>
+
+    <script src='js/core/post/post.module.js'></script>
+    <script src='js/core/post/post.service.js'></script>
+
+
+    <script src='js/utils/confirm-click.module.js'></script>
+    <script src='js/utils/confirm-click.directive.js'></script>
+
+
+    <script src='js/blog-detail/blog-detail.module.js'></script>
+    <script src='js/blog-detail/blog-detail.component.js'></script>
+    <script src='js/blog-list/blog-list.module.js'></script>
+    <script src='js/blog-list/blog-list.component.js'></script>
+   
+
+    <style>
+    .new-class {
+        font-size: 72px;
+    }
+    .other-class {
+        font-size: 32px;
+    }
+    .new-class2 {
+        font-size: 120px;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Us</h1>
+    <div ng-view>
+
+    </div>
+    
+  </body>
+</html>

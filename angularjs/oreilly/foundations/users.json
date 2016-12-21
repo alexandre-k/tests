@@ -1,0 +1,6 @@
+[
+	{'id': 1, 'first_name': 'Alexandre', 'last_name': 'Krispin'},
+	{'id': 2, 'first_name': 'Leslie', 'last_name': 'Krispin'},
+	{'id': 3, 'first_name': 'Yoshio', 'last_name': 'Osato'},
+	{'id': 4, 'first_name': 'Hiroyuki', 'last_name': 'Sugiyama'},
+]
