@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>App</title>
+    </head>
+    <body>
+        <div ng-app='app'>
+            <div ng-controller='AppCtrl'>
+                {{title}}
+            </div>
+            <clock timezone='MST'></clock>
+            <panel title='Just a title'><clock timezone='JST'></clock></panel>
+            <div class='button'
+                 ng-repeat='letter in "some words".split(" ")'
+                 ng-click='$log.debug($event)'
+                 <!--
+                    - ng-click='ev = $event'>
+                    -->
+                {{$index}} -> {{letter}}
+                <!--
+                   - {{ev.pageX}}
+                   -->
+            </div>
+        </div>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src='main.js'></script>
+    </body>
+</html>
+
+
+

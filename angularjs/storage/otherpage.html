@@ -1,0 +1,11 @@
+<body>
+<script>
+localStorage.clear()
+document.write('<h1>Hi ' + localStorage.name + '</h1>');
+document.write('<h1>Hi ' + sessionStorage.name + '</h1>');
+document.write('My local storage contains ' + localStorage.length + ' item(s)');
+document.write('Here is the key(0) of the session storage: ' + sessionStorage.key(0))
+document.write('And the value is: ' + sessionStorage.getItem('name'))
+sessionStorage.removeItem('name')
+</script>
+</body>

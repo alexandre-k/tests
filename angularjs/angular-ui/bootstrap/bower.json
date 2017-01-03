@@ -1,0 +1,20 @@
+{
+  "name": "bootstrap",
+  "homepage": "https://github.com/alexandre-k/tests",
+  "authors": [
+    "Alexandre Krispin <k.m.alexandre@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "^2.3.1"
+  }
+}

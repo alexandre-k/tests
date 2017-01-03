@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Fake users</title>
+    </head>
+    <body ng-controller="MainCtrl as vm">
+        <h1>Get Random User</h1>
+        <div ng-show="!vm.user">
+            <form ng-submit="vm.login(vm.username, vm.password)">
+                <label for="Username">Username: <input type="text" ng-model="vm.username"/></label><br/>
+                <label for="Password">Password: <input type="text" ng-model="vm.password"/></label><br/>
+                <button type="submit">Login</button>
+                
+            </form>
+        </div>
+        <div ng-hide="!vm.user">
+            <h2>Welcome {{vm.user.username}}</h2>
+            <button ng-click="vm.logout()">Logout</button>
+            <button ng-click="vm.getRandomUser()">Get User</button>
+            <pre ng-bind="vm.randomUser | json"></pre>
+        </div>
+
+        <script src="/bower_components/angular/angular.js"></script>
+        <script src="/app.js"></script>
+    </body>
+</html>

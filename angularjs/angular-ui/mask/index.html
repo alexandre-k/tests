@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title></title>
+        <script src='bower_components/angular/angular.js'></script>
+        <script src='bower_components/angular-ui-mask/dist/mask.js'></script>
+        <script src='app.js'></script>
+    </head>
+    <body>
+        <div ng-controller='MainController'>
+            <p><input ng-model='value1' ui-mask='{{mask1}}'></p>
+            <p>{{value1}}</p>
+
+            <p><input ng-model='value2' ui-mask='{{mask2}}'></p>
+            <p>{{value2}}</p>
+
+            <p><input ng-model='value3' ui-mask='{{mask3}}'></p>
+            <p>{{value3}}</p>
+
+
+        </div>
+    </body>
+</html>

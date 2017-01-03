@@ -1,0 +1,12 @@
+<ul>
+    <li><a href='/'>Home</a></li>
+    <li ng-repeat='route in routes'>
+        <a ui-route href='{{route}}' ng-class='{ current:$uiRoute }'>{{route}}</a>
+    </li>
+    <li ng-repeat='route in routes' ui-route='{{route}}'>
+        {{route}}
+        <strong ng-show='$uiRoute'>Is</strong>
+        <strong ng-show='!$uiRoute'>Is Not</strong>
+        active.
+    </li>
+</ul>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>TV Tracker</title>
+        <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css'/>
+        <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap-theme.css'/>
+        <link rel='stylesheet' href='main.css'/>
+        <link rel='stylesheet' href='sections/search/search.css'/>
+
+        <script src='bower_components/jquery/dist/jquery.min.js'></script>
+        <script src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+        <base href='/'>
+    </head>
+    <body ng-app='app'>
+        <header class='top' role='header'>
+            <div class="logo">TvTracker</div>
+            <div class='container'>
+                <nav class='navbar-collapse collapse' role='navigation'>
+                    <ul class='navbar-nav nav'>
+                        <li>
+                            <a href="#!/">What's on <div class='arrow-up'></div></a>
+                        </li>
+                        <li>
+                            <a href="#!/my-shows">My Shows<div class='arrow-up'></div></a>
+                        </li>
+                        <li>
+                            <a href="#!/search">Search<div class='arrow-up'></div></a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+            </div>
+        </header>
+        <ng-view>
+        </ng-view>
+
+        <main class="main-container container">
+
+        </main>
+        <script src='bower_components/angular/angular.js'></script>
+        <script src='bower_components/angular-route/angular-route.js'></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src='bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'></script>
+        <script src="bower_components/angular-local-storage/angular-local-storage.js"></script>
+        <script src="app.js"></script>
+        <script src="app.core.js"></script>
+        <script src="app.routes.js"></script>
+        <script src="app.services.js"></script>
+
+        <!-- SERVICES -->
+        <script src="services/show.fct.js"></script>
+        <script src="services/store.fct.js"></script>
+        <!-- CONTROLLERS -->
+        <script src='sections/search/search.ctrl.js'></script>
+        <script src='sections/show/show.ctrl.js'></script>
+        <script src='sections/my-shows/my-shows.ctrl.js'></script>
+        <script src='sections/whats-on/whats-on.ctrl.js'></script>
+    </body>
+</html>
+
+
+

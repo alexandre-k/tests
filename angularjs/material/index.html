@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>my app</title>
+        <link rel='stylesheet' href='bower_components/angular-material/angular-material.css'/>
+    </head>
+    <body ng-app='myApp' layout='column'
+                              ng-controller='UserController as ul'>
+        <md-toolbar>
+            <h1>Angular Material Starter</h1>
+        </md-toolbar>
+
+        <div class="container" layout='row' flex>
+    
+            <md-sidenav md-is-locked-open='true' class='md-whiteframe-4dp'>
+                <md-list>
+                    <md-list-item ng-repeat='u in ul.users'>
+                        <md-button ng-click='ul.selectUser(u)'>
+                            <md-icon md-svg-src='{{u.avatar}}'></md-icon>
+                            {{u.name}}
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+            </md-sidenav>
+
+            <md-content id='content' flex>
+                <md-icon md-svg-src='avatar.svg'></md-icon>
+                <h2>{{ul.selected.name}}</h2>
+
+                <p>{{ul.selected.content}}</p>
+
+            </md-content>
+
+           
+        </div>
+
+
+
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+        <script src="bower_components/angular-material/angular-material.min.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="Users.js"></script>
+        <script src="UserService.js"></script>
+        <script src="UserController.js"></script>
+        <script>
+            angular.module('myApp', ['ngMaterial', 'users'])
+            .run(function() {
+                console.log('My App is ready!')
+            })
+        </script>
+    </body>
+</html>

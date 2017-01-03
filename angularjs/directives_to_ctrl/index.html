@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>My App</title>
+        <link rel='stylesheet' href='bower_components/foundation/css/normalize.css'/>
+        <link rel='stylesheet' href='bower_components/foundation/css/foundation.css'/>
+    </head>
+    <body>
+        <div ng-app='twitterApp'>
+            <div ng-controller='AppCtrl'>
+                <div enter='loadMoreTweets()'>
+                    Roll over to load more tweets
+                </div>
+
+                <div enter='deleteTweets()'>
+                    Roll over here to delete tweets
+                </div>
+
+                <superhero flight speed strength>Superman</superhero>
+                <superhero speed>Flash</superhero>
+            </div> 
+        </div>
+        <script src='bower_components/angular/angular.js'></script>
+        <script src='main.js'></script>
+    </body>
+</html>

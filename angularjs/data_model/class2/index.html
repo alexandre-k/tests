@@ -1,0 +1,16 @@
+<html>
+<body>
+    <div class="row">
+        <h2>All controllers are siblings in this example</h2>
+        <h4>Objects Literals</h4>
+        <div ng-controller='FirstCtrl'>
+            {{ user.data }}
+            <input ng-model='user.data'>
+            <div updater user='user'></div>
+        </div>
+        <div ng-controller='SecondCtrl'>
+            {{user.data}}
+        </div updater user='user'></div>
+    </div>
+</body>
+</html>

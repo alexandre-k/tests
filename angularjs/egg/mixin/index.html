@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Promises</title>
+    </head>
+    <body ng-app='app'>
+        <div ng-controller='AppCtrl as ctrl'>
+            <button ng-click='ctrl.loadPosts()'>Load posts</button>
+            <button ng-click='ctrl.clearCache()'>Clear cache</button>
+            <ul>
+                <li ng-repeat='post in ctrl.posts'>{{post.title}}</li>
+            </ul>
+        </div>
+        <h1>Messages Demo</h1>
+        <div ng-controller='msgCtrl as msg'>
+            <form name='myForm'>
+                <input type='email' name='myField' ng-model='field' required minlength='5' />
+               <div class='my-messages' ng-messages="myForm.myField.$error">
+                   <div class='some-message' ng-message='required'>The field is required</div>
+                   <div class='some-message' ng-message='minlength'>Input too short</div>
+                   <div class='some-message' ng-message='email'>This field must be an email</div>
+               </div> 
+            </form>
+
+            <style>
+                .my-messages {
+                    position: relative;
+                }
+                .my-messages.ng-active {
+                }
+                .my-messages.ng-inactive {
+
+                }
+                .some-message {
+                    position:absolute;
+                    opacity: 1;
+                    transition: .3s linear all;
+                    font-size: .8em;
+                }
+                .some-message.ng-enter.ng-enter-active {
+                    opacity: 1;
+                    top: 0;
+                }
+                .some-message.ng-enter{
+                    opacity: 0;
+                    top: -20px;
+                }
+                .some-message.ng-leave{
+                    opacity: 1;
+                    top:0;
+                }
+                .some-message.ng-leave.ng-leave-active {
+                    opacity:0;
+                    top:-20;
+                }
+            </style>
+
+            <script type="text/ng-template" id="my-messages">
+                   <div ng-message='required'>The field is required</div>
+                   <div ng-message='minlength'>Input too short</div>
+                   <div ng-message='email'>This field must be an email</div>
+            </script>
+
+            <form name='myForm'>
+                <input type='email' name='myField' ng-model='field' required minlength='5' />
+                <div ng-messages="myForm.myField.$error">
+                    <!--
+                       - <div ng-messages-include="my-messages"></div>
+                       -->
+               </div> 
+            </form>
+        </div>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="node_modules/angular-messages/angular-messages.js"></script>
+        <script src="node_modules/angular-animate/angular-animate.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

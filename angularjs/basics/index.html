@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>App</title>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <!--
+           - <script src="bower_components/bootstrap/dist/css/bootstrap.min.css"></script>
+           -->
+        <script src='app.js'></script>
+    </head>
+    <body>
+        <div ng-controller='displayPostCtrl'>
+        </div>
+        <a ui-sref='first' ui-sref-active='active'>First</a>
+        <a ui-sref='second' ui-sref-active='active'>Second</a>
+        <ui-view></ui-view>
+    </body>
+</html>
+
+

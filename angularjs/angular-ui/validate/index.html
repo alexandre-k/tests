@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+    <head>
+        <style type="text/css" media="screen">
+            input.ng-invalid.ng-dirty {
+                border: 1px solid red;
+            }
+            input.ng-valid {
+                border: 1px solid darkblue;
+            }
+        </style>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title></title>
+        <script src='bower_components/angular/angular.js'></script>
+        <script src='bower_components/angular-ui-validate/dist/validate.js'></script>
+        <script src='app.js'></script>
+    </head>
+    <body ng-app='app'>
+        <div ng-controller='MainController'>
+            <form action="submit" name='myForm' ng-model='password' accept-charset="utf-8">
+                <p><input name='password' ng-model='password' required /></p> 
+                <p><input name='confirmPassword'
+                          ng-model='confirmPassword'
+                          ui-validate='"validatePassword($value)"'
+                          ui-validate-watch='"password"'
+                          required /></p>
+                <p><button ng-disabled='!myForm.$valid'>Submit</button></p>
+            </form>
+        </div>
+    </body>
+</html>

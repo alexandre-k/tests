@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>My Watch usage</title>
+    </head>
+    <body ng-app='app'>
+        <div ng-controller='WatchCtrl'>
+            <form role='form'>
+                <label for='pwd'>Password</label>
+                <input id='pwd' type='password' placeholder='password' ng-model='user.password'>
+                <button type='submit' class='btn btn-default'>Submit</button>
+            </form>
+            <div ng-show='showReqs'>
+                <h3>Passowrd Requirements</h3>
+                <ul>
+                    <li ng-repeat='req in reqs'>{{req}}</li>
+                </ul>
+            </div>
+        </div>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

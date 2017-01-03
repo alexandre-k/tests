@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>App</title>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src='bower_components/ngstorage/ngStorage.js'></script>
+        <script src='app.js'></script>
+    </head>
+    <body ng-controller='AppCtrl'>
+        <button ng-click='loadData()'>Load data</button>
+        <button ng-click='saveData()'>Save data</button>
+        <br/>
+        {{ message }}
+    </body>
+</html>

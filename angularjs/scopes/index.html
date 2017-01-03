@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>My App</title>
+        <link rel='stylesheet' href='bower_components/foundation/css/normalize.css'/>
+        <link rel='stylesheet' href='bower_components/foundation/css/foundation.css'/>
+    </head>
+    <body>
+        <div ng-app='choreApp'>
+            <div ng-controller='choreCtrl'>
+                <kid done='logChore(chore)'></kid>
+                <kid></kid>
+            </div>
+            <div ng-controller='drinkCtrl'>
+                <input type='text' ng-model='ctrlFlavor'>
+                <div drink flavor='ctrlFlavor'></div>
+            </div>
+            <div ng-controller='phoneCtrl'>
+                <div phone dial='callHome({{message}})'></div>
+            </div>
+        </div>
+        <div ng-app='phoneApp'>
+            <div ng-controller='AppCtrl'>
+                <div class="button" ng-click="AppCtrl.sayHi()">Click me!</div>
+            </div>
+
+        </div>
+        <script src='bower_components/angular/angular.js'></script>
+        <script src='main.js'></script>
+    </body>
+</html>
